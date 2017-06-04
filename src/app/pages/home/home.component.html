@@ -1,0 +1,27 @@
+<div class="home">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Search GIFs</h1>
+            <p><a href="https://giphy.com/" target="_blank">Giphy</a> is a repository of animated GIFs. This exercise is using <a href="https://github.com/Giphy/GiphyAPI" target="_blank">Giphy api</a> to search animated GIFs.</p>
+            <app-search (results)="onSearch($event)"></app-search>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6" *ngFor="let list of lists">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="bootswatch">
+                                <a routerLink="/{{list.keyword}}/{{list.id}}">
+                                    <img class="thumbnail" src="{{list.url}}" width="248" height="139">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="needPagination()">pagination</div>
