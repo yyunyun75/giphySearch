@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
+import { GiphyApiService } from '../../services/giphy-api.service';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HomeComponent implements OnInit {
 
     lists: object[];
+    keyword: string;
 
-    constructor() { }
+    constructor(
+        private activatedRoute: ActivatedRoute, 
+        private giphyApiService: GiphyApiService
+    ) { }
 
     ngOnInit() {
+        this.activatedRoute.params.subscribe(params =>{
+            this.keyword = params['keyword'];
+            if(this.keyword){
+                this.lists = this.giphyApiService.getListsByKeyword(this.keyword);
+            }
+        });
     }
 
     onSearch(results: any){

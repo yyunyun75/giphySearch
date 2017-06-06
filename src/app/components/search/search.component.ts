@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { GiphyApiService } from '../../services/giphy-api.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
@@ -8,18 +9,19 @@ import { GiphyApiService } from '../../services/giphy-api.service';
 })
 export class SearchComponent implements OnInit {
 
-  @Output() results: EventEmitter<object[]> = new EventEmitter();
+  @Input() existKeyword: string;
 
-  constructor(private giphyApiService: GiphyApiService) { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+
   }
 
   search(keyword: HTMLInputElement){
 
-    let lists = this.giphyApiService.getListsByKeyword(keyword.value);
-
-    this.results.emit(lists);
+    this.router.navigate([keyword.value]);
   }
 
 }

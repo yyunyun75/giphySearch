@@ -3,7 +3,7 @@
         <div class="container">
             <h1>Search GIFs</h1>
             <p><a href="https://giphy.com/" target="_blank">Giphy</a> is a repository of animated GIFs. This exercise is using <a href="https://github.com/Giphy/GiphyAPI" target="_blank">Giphy api</a> to search animated GIFs.</p>
-            <app-search (results)="onSearch($event)"></app-search>
+            <app-search [existKeyword]=keyword></app-search>
         </div>
     </div>
     <div class="container">
@@ -24,4 +24,6 @@
         </div>
     </div>
 </div>
+{{keyword}}
+
 <div *ngIf="needPagination()">pagination</div>
