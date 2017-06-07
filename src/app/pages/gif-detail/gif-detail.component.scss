@@ -1,0 +1,36 @@
+.detailPage{
+    .gif-title{
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .container>.row{
+        display: flex;
+        align-items: stretch;
+        .panel{
+            height: 100%;
+        }
+        .well{
+            height: 100%;
+            >.row{
+                display: flex;
+                align-items: stretch;
+            }
+        }
+    }
+    .detail-actions{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    .list-unstyled{
+        li{
+            margin: 10px auto;
+            button{
+                width: 110px;
+            }
+        }
+    }
+}

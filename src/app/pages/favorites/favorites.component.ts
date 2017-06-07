@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { AppStore } from '../../reducers';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+    favorites = this.store.select('favorites');
+    storageData = localStorage.get('test');
 
-  ngOnInit() {
-  }
+    constructor(
+        private store: Store<AppStore>
+    ) { }
+
+    ngOnInit() {
+        console.log(this.storageData, 'daata');
+    }
 
 }

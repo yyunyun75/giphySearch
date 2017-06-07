@@ -1,3 +1,53 @@
-<p>
-  gif-detail works! -id:{{id}} --keyword:{{keyword}}
-</p>
+<div class="detailPage">
+    <div class="container" *ngIf="gif">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="gif-title">{{gif.slug|uppercase}}</h3>
+                    </div>
+                    <div class="panel-body">
+                    <p>
+                        <strong>Created Date:</strong> {{gif.import_datetime | date}}
+                    </p>
+                    <p>
+                        <strong>Rating:</strong> <span class="label label-info">{{gif.rating}}</span>
+                    </p>
+                    <p>
+                        <strong>Source:</strong> <a [href]="gif.url" target="_blank">Gifphy</a>
+                    </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <img [src]="gif.images.original.url" [width]="gif.images.original.width" [height]="gif.images.original.height">
+                        </div>
+                        <div class="col-sm-3 detail-actions">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <button class="btn btn-primary" (click)="addFavorite()">
+                                        Favorite <i class="fa fa-heart"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-success" (click)="shuffle()">
+                                        Shuffle <i class="fa fa-random"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="detail-nav">
+                                <a routerLink="/{{keyword}}" class="btn btn-link"> 
+                                    <i class="fa fa-chevron-left"></i> Back to Search results
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

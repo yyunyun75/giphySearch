@@ -1,3 +1,19 @@
-<p>
-  favorites works!
-</p>
+<div class="favoritesPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6" *ngFor="let favorite of favorites | async">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="bootswatch">
+                                <a routerLink="/{{favorite.slug}}/{{favorite.id}}">
+                                    <img class="thumbnail" src="{{favorite.images.fixed_height.url}}" width="{{favorite.images.fixed_height.width}}" height="{{favorite.images.fixed_height.height}}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

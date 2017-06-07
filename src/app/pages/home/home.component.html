@@ -1,4 +1,4 @@
-<div class="home">
+<div class="homePage">
     <div class="jumbotron">
         <div class="container">
             <h1>Search GIFs</h1>
@@ -13,8 +13,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="bootswatch">
-                                <a routerLink="/{{list.keyword}}/{{list.id}}">
-                                    <img class="thumbnail" src="{{list.url}}" width="248" height="139">
+                                <a routerLink="/{{keyword}}/{{list.id}}">
+                                    <img class="thumbnail" src="{{list.images.fixed_height.url}}" width="{{list.images.fixed_height.width}}" height="{{list.images.fixed_height.height}}">
                                 </a>
                             </div>
                         </div>
@@ -24,6 +24,5 @@
         </div>
     </div>
 </div>
-{{keyword}}
 
 <div *ngIf="needPagination()">pagination</div>

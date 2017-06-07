@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 //page components
 import { AppComponent } from './app.component';
@@ -17,7 +19,9 @@ import { SearchComponent } from './components/search/search.component';
 import { GiphyApiService } from './services/giphy-api.service';
 
 //routes
-import {routeConfig} from './app.routes';
+import { routeConfig } from './app.routes';
+
+import { appStore } from './reducers';
 
 
 @NgModule({
@@ -32,7 +36,9 @@ import {routeConfig} from './app.routes';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    StoreModule.provideStore(appStore),
+    StoreDevtoolsModule.instrumentStore(),
   ],
   providers: [GiphyApiService],
   bootstrap: [AppComponent]
