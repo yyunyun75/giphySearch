@@ -11,14 +11,13 @@ import { AppStore } from '../../reducers';
 export class FavoritesComponent implements OnInit {
 
     favorites = this.store.select('favorites');
-    storageData = localStorage.get('test');
 
     constructor(
         private store: Store<AppStore>
     ) { }
 
     ngOnInit() {
-        console.log(this.storageData, 'daata');
+
     }
 
 }

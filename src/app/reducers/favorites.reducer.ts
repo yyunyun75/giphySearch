@@ -1,5 +1,8 @@
 //inital state to get favorites from localStorage
-const initialState = [];
+let initialState = [];
+if(window.localStorage.getItem('Giphy_Favorites')){
+    initialState = JSON.parse(window.localStorage.getItem('Giphy_Favorites'));
+}
 
 export function favoritesReducer(state = initialState, action) {
     switch(action.type){
@@ -13,17 +16,25 @@ export function favoritesReducer(state = initialState, action) {
             if(exist){
                 return state;
             }else{
-                return [
+                let data = [
                     gif,
                     ...state
                 ];
+                window.localStorage.setItem('Giphy_Favorites', JSON.stringify(data));
+
+                return data;
             }
             
 
         case 'DELETE_FAVORITE':
-            return state.filter(favorite => {
+            
+            let data = state.filter(favorite => {
                 return favorite.id !== action.payload.id;
             });
+
+            window.localStorage.setItem('Giphy_Favorites', JSON.stringify(data));
+            
+            return data;
 
         case 'CLEAR_FAVORITES':
             return [];

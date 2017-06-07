@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'GraphySearch';
 
+  ngOnInit(){
+    if(!window.localStorage.getItem('Giphy_Favorites')){
+        window.localStorage.setItem('Giphy_Favorites', JSON.stringify([]));
+    }
+  }
 }

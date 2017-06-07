@@ -29,8 +29,11 @@
                         <div class="col-sm-3 detail-actions">
                             <ul class="list-unstyled">
                                 <li>
-                                    <button class="btn btn-primary" (click)="addFavorite()">
+                                    <button class="btn btn-primary" (click)="addFavorite()" *ngIf="!isFavorite(gif.id)">
                                         Favorite <i class="fa fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary" (click)="delFavorite()" *ngIf="isFavorite(gif.id)">
+                                        Remove <i class="fa fa-heart-o"></i>
                                     </button>
                                 </li>
                                 <li>

@@ -7,7 +7,7 @@ import { GiphyApiService } from '../../services/giphy-api.service';
 import { Gif } from '../../models/gif';
 import { AppStore } from '../../reducers';
 import { actSaveList } from '../../actions/search-results.actions';
-import { actAddFavorite } from '../../actions/favorites.actions';
+import { actAddFavorite, actDelFavorite } from '../../actions/favorites.actions';
 
 @Component({
   selector: 'app-gif-detail',
@@ -82,4 +82,17 @@ export class GifDetailComponent implements OnInit {
         this.store.dispatch(actAddFavorite(this.gif));
     }
 
+    delFavorite(){
+      this.store.dispatch(actDelFavorite(this.gif['id']));
+    }
+
+    isFavorite(id:string){
+        let favorites = JSON.parse(window.localStorage.getItem('Giphy_Favorites'));
+
+        if(favorites.length>0){
+            return favorites.some(favorite => favorite.id === id);
+        }
+
+        return false;
+    }
 }
