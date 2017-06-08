@@ -29,7 +29,7 @@ export class GifDetailComponent implements OnInit {
         private giphyApiService: GiphyApiService,
         private store: Store<AppStore>,
         private router: Router
-    ) { 
+    ) {
     }
 
     ngOnInit() {
@@ -82,10 +82,12 @@ export class GifDetailComponent implements OnInit {
         this.store.dispatch(actAddFavorite(this.gif));
     }
 
+    //remove favorite image
     delFavorite(){
       this.store.dispatch(actDelFavorite(this.gif['id']));
     }
 
+    //check if image is favorite
     isFavorite(id:string){
         let favorites = JSON.parse(window.localStorage.getItem('Giphy_Favorites'));
 

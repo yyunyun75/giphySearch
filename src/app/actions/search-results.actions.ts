@@ -1,4 +1,6 @@
-export const actSaveList = (list:object[]) => ({
+import { Gif } from '../models/gif';
+
+export const actSaveList = (list:Gif[]) => ({
     type: 'SAVE_LIST',
     payload:{
         list

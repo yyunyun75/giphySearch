@@ -3,25 +3,25 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+    selector: 'app-search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
 
-  @Input() existKeyword: string;
+    @Input() existKeyword: string;
 
-  constructor(
+    constructor(
     private router: Router
-  ) { }
+    ) { }
 
-  ngOnInit() {
+    ngOnInit() {
 
-  }
+    }
 
-  search(keyword: HTMLInputElement){
+    search(keyword: HTMLInputElement){
 
-    this.router.navigate([keyword.value]);
-  }
+        this.router.navigate([keyword.value]);
+    }
 
 }

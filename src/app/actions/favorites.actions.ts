@@ -1,4 +1,6 @@
-export const actAddFavorite = (gif:object) => ({
+import { Gif } from '../models/gif';
+
+export const actAddFavorite = (gif:Gif) => ({
     type: 'ADD_FAVORITE',
     payload:{
         gif

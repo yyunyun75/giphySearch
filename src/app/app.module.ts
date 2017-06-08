@@ -21,6 +21,7 @@ import { GiphyApiService } from './services/giphy-api.service';
 //routes
 import { routeConfig } from './app.routes';
 
+//redux data store
 import { appStore } from './reducers';
 
 
