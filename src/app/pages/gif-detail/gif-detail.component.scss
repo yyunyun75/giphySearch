@@ -33,4 +33,17 @@
             }
         }
     }
+    .img-wrapper{
+        position: relative;
+        .placeholder{
+            position: absolute;
+        }
+        img{
+            position: relative;
+        }
+    }
+    .well{
+        overflow:hidden;
+    }
+
 }
